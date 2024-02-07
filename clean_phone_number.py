@@ -44,21 +44,26 @@ def process_prefix(x):
   else:
     return ''
 
-# input file path - change the file path accordingly
-folder_path = r'c:\Users\mfmohammad\OneDrive - UNICEF\Desktop\Data Cleaning\Dec\27 Dec'
-file_name = 'Donor With Invalid Phone Number.xlsx'
-full_path = f'{folder_path}/{file_name}'
+def main():
+    # input file path - change the file path accordingly
+    folder_path = r'C:\Users\mfmohammad\OneDrive - UNICEF\Documents\Data Cleaning\2024\Feb\7'
+    file_name = 'Donor With Invalid Phone Number.xlsx'
+    full_path = f'{folder_path}/{file_name}'
 
-# read file
-df = pd.read_excel(full_path)
-df = process_mobile_numbers(df)
+    # read file
+    df = pd.read_excel(full_path)
+    # process mobile number
+    df = process_mobile_numbers(df)
 
-# output file
-# Rename the output file
-new_file_name = "Donor With Invalid Phone Number - Edited.xlsx"
-new_full_path = f'{folder_path}/{new_file_name}'
+    # Rename the output file
+    new_file_name = "Donor With Invalid Phone Number - Edited.xlsx"
+    # output file path
+    new_full_path = f'{folder_path}/{new_file_name}'
 
-# Save the file
-df.to_excel(new_full_path, index=False)
+    # Save the file
+    df.to_excel(new_full_path, index=False)
 
-print(f'Excel file cleaned and saved as {new_file_name} successfully')
+    print(f'Excel file cleaned and saved as {new_file_name} successfully')
+
+if __name__ == "__main__":
+  main()
